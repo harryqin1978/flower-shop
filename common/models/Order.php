@@ -62,8 +62,8 @@ class Order extends ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'source_id', 'price', 'paymethod_id', 'send_date', 'description', 'receiver_name', 'receiver_address'], 'required'],
-            [['user_id', 'source_id', 'paymethod_id'], 'integer'],
+            [['source_id', 'price', 'paymethod_id', 'send_date', 'description', 'receiver_name', 'receiver_address'], 'required'],
+            [['source_id', 'paymethod_id'], 'integer'],
             [['price', 'cost'], 'number'],
             [['send_date'], 'date'],
             [['card_info', 'hidden_info'], 'string'],
@@ -98,6 +98,21 @@ class Order extends ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($insert) {
+                $this->user_id = Yii::$app->user->id;
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

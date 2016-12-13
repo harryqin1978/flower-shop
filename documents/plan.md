@@ -6,21 +6,24 @@
 部署github。 [ok 2016-12-11]
 通过migration创建order, source, payment表。 [ok 2016-12-11]
 gii创建order curd界面。 [ok 2016-12-13]
-添加order管理菜单项。
+添加order管理菜单项。 [ok 2016-12-13]
 修改order curd界面使其符合实际需要。
-    登录用户才能访问
+    登录用户才能访问。 [ok 2016-12-13]
     created_at, update_at自动生成，并自动格式化输出。 [ok 2016-12-13]
     查询界面page_size自定义。 [ok 2016-12-13]
-    user_id自动填充（仅新加的时候）。
+    user_id自动填充（仅新加的时候）。 [ok 2016-12-13]
     send_date采用jquery日期控件。 [ok 2016-12-13]
     source_id和paymethod_id需下拉选择。(要用active record join机制吗？)
     create和update跳转到index页面。
     create跳转到第1页。
     update跳转时能够记录原来的url querystring。
+    查询列表和详情界面user_id需换成user name(label and value)。
+    查询列表和详情界面paymethod_id和source_id需换成对应关联表的name值(label and value)。
     查询界面默认按id倒排序。
     查询界面显示列和原系统相同。
     查询界面搜索选择框和原系统相同。
 order image upload功能，添加order表image字段，操作其添加编辑功能。
+    查询界面需显示image缩略图(yii2有自动生成缩略图类库或方法吗？)
 多语言切换功能，cookie自动记忆。
 订单打印功能，精确自动分页，采用弹窗二次确认，可以选择是否打印图片/留言。
 多语言词条翻译。
