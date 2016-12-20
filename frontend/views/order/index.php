@@ -45,15 +45,15 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'updated_at',
 
             [
-                'class' => 'yii\grid\ActionColumn',
-                'urlCreator' => function ($action, $model, $key, $index, $actionColumn) {
-                    $params = is_array($key) ? $key : ['id' => (string) $key];
-                    if ($action == 'update') {
-                        $params['redirect-url'] = Url::current();
-                    }
-                    $params[0] = $actionColumn->controller ? $actionColumn->controller . '/' . $action : $action;
-                    return Url::toRoute($params);
-                },
+                'class' => 'common\components\AdvancedActionColumn',
+                // 'urlCreator' => function ($action, $model, $key, $index, $actionColumn) {
+                //     $params = is_array($key) ? $key : ['id' => (string) $key];
+                //     if ($action == 'update') {
+                //         $params['redirect-url'] = Url::current();
+                //     }
+                //     $params[0] = $actionColumn->controller ? $actionColumn->controller . '/' . $action : $action;
+                //     return Url::toRoute($params);
+                // },
             ],
         ],
     ]); ?>

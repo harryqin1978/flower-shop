@@ -76,8 +76,7 @@ class OrderController extends Controller
         $model = new Order();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            // return $this->redirect(['view', 'id' => $model->id]);
-            return $this->redirect(['index', 'sort' => '-id']);
+            return $this->redirectIndex();
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -96,12 +95,7 @@ class OrderController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            // return $this->redirect(['view', 'id' => $model->id]);
-            if ($redirectUrl = Yii::$app->request->get('redirect-url')) {
-                return $this->redirect($redirectUrl);
-            } else {
-                return $this->redirect(['index']);
-            }
+            return $this->redirectIndex();
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -135,6 +129,19 @@ class OrderController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    /**
+     * Redirect to $_GET['redirect-url'] page, or index page with id desc sort as default.
+     * @return [type] [description]
+     */
+    protected function redirectIndex()
+    {
+        if ($redirectUrl = Yii::$app->request->get('redirect-url')) {
+            return $this->redirect($redirectUrl);
+        } else {
+            return $this->redirect(['index', 'sort' => '-id']);
         }
     }
 }
