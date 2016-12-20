@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\OrderSearch */
@@ -22,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'user_id',
@@ -43,7 +44,17 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'urlCreator' => function ($action, $model, $key, $index, $actionColumn) {
+                    $params = is_array($key) ? $key : ['id' => (string) $key];
+                    if ($action == 'update') {
+                        $params['redirect-url'] = Url::current();
+                    }
+                    $params[0] = $actionColumn->controller ? $actionColumn->controller . '/' . $action : $action;
+                    return Url::toRoute($params);
+                },
+            ],
         ],
     ]); ?>
 </div>
