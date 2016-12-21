@@ -11,6 +11,9 @@ use yii\data\ActiveDataProvider;
  */
 class OrderSearch extends Order
 {
+    public $user_name;
+    public $source_name;
+
     /**
      * @inheritdoc
      */
@@ -19,7 +22,7 @@ class OrderSearch extends Order
         return [
             [['id', 'user_id', 'source_id', 'paymethod_id', 'created_at', 'updated_at'], 'integer'],
             [['price', 'cost'], 'number'],
-            [['send_date', 'description', 'special', 'card_info', 'hidden_info', 'receiver_name', 'receiver_mobile', 'receiver_address', 'buyer_mobile', 'buyer_identify'], 'safe'],
+            [['send_date', 'description', 'special', 'card_info', 'hidden_info', 'receiver_name', 'receiver_mobile', 'receiver_address', 'buyer_mobile', 'buyer_identify', 'user_name', 'source_name'], 'safe'],
         ];
     }
 
@@ -82,6 +85,22 @@ class OrderSearch extends Order
             ->andFilterWhere(['like', 'receiver_address', $this->receiver_address])
             ->andFilterWhere(['like', 'buyer_mobile', $this->buyer_mobile])
             ->andFilterWhere(['like', 'buyer_identify', $this->buyer_identify]);
+
+        if ($this->user_name) {
+            if ($user = User::findOne(['username' => trim($this->user_name)])) {
+                $query->andFilterWhere(['user_id' => $user->id]);
+            } else {
+                $query->andWhere('1=0');
+            }
+        }
+
+        if ($this->source_name) {
+            if ($source = Source::findOne(['name' => trim($this->source_name)])) {
+                $query->andFilterWhere(['source_id' => $source->id]);
+            } else {
+                $query->andWhere('1=0');
+            }
+        }
 
         return $dataProvider;
     }

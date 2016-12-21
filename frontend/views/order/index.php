@@ -26,10 +26,24 @@ $this->params['breadcrumbs'][] = $this->title;
             // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'user_id',
-            'source_id',
+            [
+                'class' => 'yii\grid\DataColumn', // can be omitted, as it is the default
+                'header' => Yii::t('app', 'User'),
+                'attribute' => 'user_name',
+                'value' => function ($data) {
+                    return $data->user->username; // $data['name'] for array data, e.g. using SqlDataProvider.
+                },
+            ],
+            [
+                'class' => 'yii\grid\DataColumn', // can be omitted, as it is the default
+                'header' => Yii::t('app', 'Source'),
+                'attribute' => 'source_name',
+                'value' => function ($data) {
+                    return $data->source->name; // $data['name'] for array data, e.g. using SqlDataProvider.
+                },
+            ],
             'price',
-            'paymethod_id',
+            // 'paymethod_id',
             // 'send_date',
             // 'description',
             // 'special',

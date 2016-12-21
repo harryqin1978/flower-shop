@@ -35,7 +35,7 @@ class Order extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'order';
+        return '{{%order}}';
     }
 
     /**
@@ -71,6 +71,21 @@ class Order extends ActiveRecord
             [['receiver_mobile', 'buyer_mobile', 'buyer_identify'], 'string', 'max' => 50],
             [['price', 'cost'], 'default', 'value' => 0],
         ];
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function getSource()
+    {
+        return $this->hasOne(Source::className(), ['id' => 'source_id']);
+    }
+
+    public function getPaymethod()
+    {
+        return $this->hasOne(Paymethod::className(), ['id' => 'paymethod_id']);
     }
 
     /**

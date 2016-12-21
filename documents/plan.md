@@ -13,12 +13,12 @@ gii创建order curd界面。 [ok 2016-12-13]
     查询界面page_size自定义。 [ok 2016-12-13]
     user_id自动填充（仅新加的时候）。 [ok 2016-12-13]
     send_date采用jquery日期控件。 [ok 2016-12-13]
-    source_id和paymethod_id需下拉选择。(要用active record join机制吗？)
     create和update跳转到index页面。 [ok 2016-12-13]
     create跳转到第1页。 [ok 2016-12-13]
     update跳转时能够记录原来的url querystring。 [ok 2016-12-20]
-    查询列表和详情界面user_id需换成user name(label and value)。
-    查询列表和详情界面paymethod_id和source_id需换成对应关联表的name值(label and value)。
+    查询列表和详情界面user_id需换成user name(label and value)。 [ok 2016-12-21]
+    查询列表和详情界面paymethod_id和source_id需换成对应关联表的name值(label and value)。 [ok 2016-12-21]
+    编辑时候source_id和paymethod_id需下拉选择。(要用active record join机制吗？)
     查询界面默认按id倒排序。
     查询界面显示列和原系统相同。
     查询界面搜索选择框和原系统相同。

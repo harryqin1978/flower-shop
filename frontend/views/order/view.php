@@ -29,10 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'user_id',
-            'source_id',
+            [
+                'attribute' => 'user_id',
+                'label' => Yii::t('app', 'User'),
+                'value' => $model->user->username,
+            ],
+            [
+                'attribute' => 'source_id',
+                'label' => Yii::t('app', 'Source'),
+                'value' => $model->source->name,
+            ],
             'price',
-            'paymethod_id',
+            [
+                'attribute' => 'paymethod_id',
+                'label' => Yii::t('app', 'Pay method'),
+                'value' => $model->paymethod->name,
+            ],
             'send_date',
             'description',
             'special',
