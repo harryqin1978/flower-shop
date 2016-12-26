@@ -45,6 +45,10 @@ class OrderController extends Controller
      */
     public function actionIndex()
     {
+        if (count(Yii::$app->request->queryParams) == 1) {
+            return $this->redirectIndex();
+        }
+
         $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
