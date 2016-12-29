@@ -5,6 +5,8 @@ namespace frontend\controllers;
 use Yii;
 use common\models\Order;
 use common\models\OrderSearch;
+use common\models\Source;
+use common\models\Paymethod;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -84,6 +86,8 @@ class OrderController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'sourceItems' => $this->getSourceItems(),
+                'paymethodItems' => $this->getPaymethodItems(),
             ]);
         }
     }
@@ -103,6 +107,8 @@ class OrderController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'sourceItems' => $this->getSourceItems(),
+                'paymethodItems' => $this->getPaymethodItems(),
             ]);
         }
     }
@@ -147,5 +153,25 @@ class OrderController extends Controller
         } else {
             return $this->redirect(['index', 'sort' => '-id']);
         }
+    }
+
+    protected function getSourceItems()
+    {
+        $sourceItems = [];
+        foreach(Source::find()->all() as $source) {
+            $sourceItems[$source->id] = $source->name;
+        }
+
+        return $sourceItems;
+    }
+
+    protected function getPaymethodItems()
+    {
+        $paymethodItems = [];
+        foreach(Paymethod::find()->all() as $paymethod) {
+            $paymethodItems[$paymethod->id] = $paymethod->name;
+        }
+
+        return $paymethodItems;
     }
 }

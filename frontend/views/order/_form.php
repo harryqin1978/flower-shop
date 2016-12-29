@@ -12,11 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'source_id')->textInput() ?>
+    <?= $form->field($model, 'source_id')->dropDownList($sourceItems) ?>
 
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'paymethod_id')->textInput() ?>
+    <?= $form->field($model, 'paymethod_id')->dropDownList($paymethodItems) ?>
 
     <?= $form->field($model, 'send_date')->widget(\yii\jui\DatePicker::classname(), [
         //'language' => 'ru',
