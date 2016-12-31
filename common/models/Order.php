@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use \yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "order".
@@ -30,6 +31,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Order extends ActiveRecord
 {
+    public $imageFile;
+
     /**
      * @inheritdoc
      */
@@ -70,6 +73,7 @@ class Order extends ActiveRecord
             [['description', 'special', 'receiver_name', 'receiver_address'], 'string', 'max' => 255],
             [['receiver_mobile', 'buyer_mobile', 'buyer_identify'], 'string', 'max' => 50],
             [['price', 'cost'], 'default', 'value' => 0],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, gif'],
         ];
     }
 
@@ -124,6 +128,14 @@ class Order extends ActiveRecord
             if ($insert) {
                 $this->user_id = Yii::$app->user->id;
             }
+
+            $this->imageFile = UploadedFile::getInstance($this, 'imageFile');
+            if ($this->imageFile) {
+                $fileName = Yii::$app->getSecurity()->generateRandomString() . '.' . $this->imageFile->extension;
+                $this->imageFile->saveAs(Yii::getAlias('@webroot/uploads/') . $fileName);
+                $this->image_url = Yii::getAlias('@web/uploads/' . $fileName);
+            }
+
             return true;
         } else {
             return false;
@@ -140,4 +152,15 @@ class Order extends ActiveRecord
 
         parent::afterFind();
     }
-}
+
+    public function upload()
+    {
+        // if ($this->validate()) {
+        //     foreach ($this->imageFiles as $file) {
+        //         $filesaveAs('uploads/' . Yii::$app->getSecurity()->generateRandomString() . '.' . $this->imageFile->extension);
+        //     }
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+    }}
