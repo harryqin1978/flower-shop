@@ -129,10 +129,10 @@ class Order extends ActiveRecord
                 $this->user_id = Yii::$app->user->id;
             }
 
-            $this->imageFile = UploadedFile::getInstance($this, 'imageFile');
+            $this->imageFile = UploadedFile::getInstance($this, 'imageFile'); // TODO: 错误处理1
             if ($this->imageFile) {
                 $fileName = Yii::$app->getSecurity()->generateRandomString() . '.' . $this->imageFile->extension;
-                $this->imageFile->saveAs(Yii::getAlias('@webroot/uploads/') . $fileName);
+                $this->imageFile->saveAs(Yii::getAlias('@webroot/uploads/') . $fileName); // TODO: 错误处理2
                 $this->image_url = Yii::getAlias('@web/uploads/' . $fileName);
             }
 

@@ -24,6 +24,7 @@ gii创建order curd界面。 [ok 2016-12-13]
     查询界面搜索选择框和原系统相同。
 order image upload功能，添加order表image字段，操作其添加编辑功能。 [ok 2016-12-31]
     查询界面需显示image缩略图(yii2有自动生成缩略图类库或方法吗？)
+    错误处理，参考http://php.net/manual/en/features.file-upload.errors.php，上传和存储都有可能出错。
 多语言切换功能，cookie自动记忆。
 订单打印功能，精确自动分页，采用弹窗二次确认，可以选择是否打印图片/留言。
 多语言词条翻译。
