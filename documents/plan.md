@@ -20,7 +20,7 @@ gii创建order curd界面。 [ok 2016-12-13]
     查询列表和详情界面paymethod_id和source_id需换成对应关联表的name值(label and value)。 [ok 2016-12-21]
     编辑时候source_id和paymethod_id需下拉选择。 [ok 2016-12-21]
     查询界面默认按id倒排序。 [ok 2016-12-21]
-    查询界面显示列和原系统相同。
+    查询界面显示列和原系统相同。 [ok 2016-12-31]
     查询界面搜索选择框和原系统相同。
 order image upload功能，添加order表image字段，操作其添加编辑功能。
     查询界面需显示image缩略图(yii2有自动生成缩略图类库或方法吗？)
@@ -28,6 +28,7 @@ order image upload功能，添加order表image字段，操作其添加编辑功�
 订单打印功能，精确自动分页，采用弹窗二次确认，可以选择是否打印图片/留言。
 多语言词条翻译。
 查询界面的排序箭头不直观，改成向上和向下的箭头。
+按日期排的订单号。
 \yii\jui\DatePicker日期控件怎么翻译呢？
 
 # 二期

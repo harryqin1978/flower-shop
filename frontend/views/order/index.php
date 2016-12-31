@@ -24,27 +24,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             // ['class' => 'yii\grid\SerialColumn'],
-
             'id',
+            'send_date',
             [
-                'class' => 'yii\grid\DataColumn', // can be omitted, as it is the default
-                'header' => Yii::t('app', 'User'),
-                'attribute' => 'user_name',
+                'class' => 'yii\grid\DataColumn',
+                'header' => Yii::t('app', 'Address'),
+                'attribute' => 'receiver_address',
                 'value' => function ($data) {
-                    return $data->user->username; // $data['name'] for array data, e.g. using SqlDataProvider.
+                    return $data->receiver_address . " [" . $data->receiver_name . "]";
                 },
             ],
+            // [
+            //     'class' => 'yii\grid\DataColumn',
+            //     'header' => Yii::t('app', 'User'),
+            //     'attribute' => 'user_name',
+            //     'value' => function ($data) {
+            //         return $data->user->username;
+            //     },
+            // ],
             [
-                'class' => 'yii\grid\DataColumn', // can be omitted, as it is the default
+                'class' => 'yii\grid\DataColumn',
                 'header' => Yii::t('app', 'Source'),
                 'attribute' => 'source_name',
                 'value' => function ($data) {
-                    return $data->source->name; // $data['name'] for array data, e.g. using SqlDataProvider.
+                    return $data->source->name;
                 },
             ],
             'price',
             // 'paymethod_id',
-            // 'send_date',
             // 'description',
             // 'special',
             // 'card_info:ntext',
