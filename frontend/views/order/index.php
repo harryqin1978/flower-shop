@@ -24,6 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             // ['class' => 'yii\grid\SerialColumn'],
+            [
+                'class' => 'yii\grid\DataColumn',
+                'header' => Yii::t('app', 'Image'),
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return $data->image_url ? '<img src="' . str_replace('uploads/', 'uploads/thumbnail.', $data->image_url) . '" style="height: 50px;" />' : '---';
+                },
+            ],
             'id',
             'send_date',
             [

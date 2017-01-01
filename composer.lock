@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cfcd53013d2cf49ca0fce5bc5edb1442",
-    "content-hash": "c0446e7ed97273e2329572a736c05b05",
+    "hash": "114d00ba84f2db239f43d251b2728446",
+    "content-hash": "f1aa09c6ae858f1b0022e530598ca102",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -163,8 +163,8 @@
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bestiejs/punycode.js.git",
-                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
+                "url": "https://github.com/bower-asset/punycode.git",
+                "reference": "bc39b1333f2747030d69d89b76af49e571366205"
             },
             "dist": {
                 "type": "zip",
@@ -325,24 +325,77 @@
             "time": "2016-07-16 12:58:58"
         },
         {
-            "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.4",
+            "name": "imagine/imagine",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "545ce9136690cea74f98f86fbb9c92dd9ab1a756"
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "f64ec666baaa800edcbf237db41121a569230709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/swiftmailer/swiftmailer/545ce9136690cea74f98f86fbb9c92dd9ab1a756.zip",
-                "reference": "545ce9136690cea74f98f86fbb9c92dd9ab1a756",
+                "url": "https://packagist.phpcomposer.com/files/avalanche123/Imagine/f64ec666baaa800edcbf237db41121a569230709.zip",
+                "reference": "f64ec666baaa800edcbf237db41121a569230709",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2013-07-10 17:25:36"
+        },
+        {
+            "name": "swiftmailer/swiftmailer",
+            "version": "v5.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "cd142238a339459b10da3d8234220963f392540c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/swiftmailer/swiftmailer/cd142238a339459b10da3d8234220963f392540c.zip",
+                "reference": "cd142238a339459b10da3d8234220963f392540c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1"
+                "mockery/mockery": "~0.9.1",
+                "symfony/phpunit-bridge": "~3.2"
             },
             "type": "library",
             "extra": {
@@ -375,7 +428,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-11-24 01:01:23"
+            "time": "2016-12-29 10:02:40"
         },
         {
             "name": "yiisoft/yii2",
@@ -523,20 +576,23 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "7452fd908a5023b8bb5ea1b123a174ca080de464"
+                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/7452fd908a5023b8bb5ea1b123a174ca080de464",
-                "reference": "7452fd908a5023b8bb5ea1b123a174ca080de464",
+                "url": "https://packagist.phpcomposer.com/files/yiisoft/yii2-composer/3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2.zip",
+                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -566,7 +622,55 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2016-02-06 00:49:24"
+            "time": "2016-12-20 13:26:02"
+        },
+        {
+            "name": "yiisoft/yii2-imagine",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-imagine.git",
+                "reference": "68ed3d96cd1895035cef3c0e9ce9cf6c2c0c7f1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/yiisoft/yii2-imagine/68ed3d96cd1895035cef3c0e9ce9cf6c2c0c7f1c.zip",
+                "reference": "68ed3d96cd1895035cef3c0e9ce9cf6c2c0c7f1c",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "0.5.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\imagine\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "amigo.cobos@gmail.com"
+                }
+            ],
+            "description": "The Imagine integration for the Yii framework",
+            "keywords": [
+                "helper",
+                "image",
+                "imagine",
+                "yii2"
+            ],
+            "time": "2016-09-04 15:14:08"
         },
         {
             "name": "yiisoft/yii2-jui",
@@ -1333,16 +1437,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.3",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "903fd6318d0a90b4770a009ff73e4a4e9c437929"
+                "reference": "c14196e64a78570034afd0b7a9f3757ba71c2a0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/php-code-coverage/903fd6318d0a90b4770a009ff73e4a4e9c437929.zip",
-                "reference": "903fd6318d0a90b4770a009ff73e4a4e9c437929",
+                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/php-code-coverage/c14196e64a78570034afd0b7a9f3757ba71c2a0a.zip",
+                "reference": "c14196e64a78570034afd0b7a9f3757ba71c2a0a",
                 "shasum": ""
             },
             "require": {
@@ -1392,7 +1496,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-11-28 16:00:31"
+            "time": "2016-12-20 15:22:42"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1577,16 +1681,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.3",
+            "version": "5.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "de164acc2f2bb0b79beb892a36260264b2a03233"
+                "reference": "50fd2be8f3e23e91da825f36f08e5f9633076ffe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/de164acc2f2bb0b79beb892a36260264b2a03233.zip",
-                "reference": "de164acc2f2bb0b79beb892a36260264b2a03233",
+                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/50fd2be8f3e23e91da825f36f08e5f9633076ffe.zip",
+                "reference": "50fd2be8f3e23e91da825f36f08e5f9633076ffe",
                 "shasum": ""
             },
             "require": {
@@ -1607,7 +1711,7 @@
                 "sebastian/diff": "~1.2",
                 "sebastian/environment": "^1.3.4 || ^2.0",
                 "sebastian/exporter": "~2.0",
-                "sebastian/global-state": "~1.0",
+                "sebastian/global-state": "^1.0 || ^2.0",
                 "sebastian/object-enumerator": "~2.0",
                 "sebastian/resource-operations": "~1.0",
                 "sebastian/version": "~1.0|~2.0",
@@ -1655,7 +1759,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-12-09 02:48:53"
+            "time": "2016-12-28 07:18:51"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

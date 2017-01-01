@@ -58,6 +58,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'cost',
             'created_at',
             'updated_at',
+            [
+                'label' => Yii::t('app', 'Image'),
+                'format' => 'raw',
+                'value' => $model->image_url ? '<img src="' . $model->image_url . '" style="max-width: 100%;" />' : '---',
+            ],
         ],
     ]) ?>
 

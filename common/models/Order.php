@@ -6,6 +6,10 @@ use Yii;
 use \yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\web\UploadedFile;
+use yii\imagine\Image;
+use Imagine\Gd;
+use Imagine\Image\Box;
+use Imagine\Image\BoxInterface;
 
 /**
  * This is the model class for table "order".
@@ -132,8 +136,19 @@ class Order extends ActiveRecord
             $this->imageFile = UploadedFile::getInstance($this, 'imageFile'); // TODO: 错误处理1
             if ($this->imageFile) {
                 $fileName = Yii::$app->getSecurity()->generateRandomString() . '.' . $this->imageFile->extension;
-                $this->imageFile->saveAs(Yii::getAlias('@webroot/uploads/') . $fileName); // TODO: 错误处理2
+                $savePath = Yii::getAlias('@webroot/uploads/') . $fileName;
+
+                // $this->imageFile->saveAs($savePath); // TODO: 错误处理2
+                Image::getImagine()
+                    ->open($this->imageFile->tempName)
+                    ->thumbnail(new Box(600, 600))
+                    ->save($savePath , ['quality' => 90]); // TODO: 错误处理2
                 $this->image_url = Yii::getAlias('@web/uploads/' . $fileName);
+
+                Image::getImagine()
+                    ->open($this->imageFile->tempName)
+                    ->thumbnail(new Box(100, 100))
+                    ->save(str_replace('uploads/', 'uploads/thumbnail.', $savePath) , ['quality' => 90]); // TODO: 错误处理3
             }
 
             return true;
