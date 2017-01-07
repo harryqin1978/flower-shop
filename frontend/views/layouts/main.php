@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use common\components\LanguageSwitcher;
 
 AppAsset::register($this);
 ?>
@@ -35,7 +36,7 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
@@ -61,6 +62,9 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
+        <div class="pull-right">
+            <?= LanguageSwitcher::Widget() ?>
+        </div>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
