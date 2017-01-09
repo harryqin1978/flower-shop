@@ -28,6 +28,10 @@ order image upload功能，添加order表image字段，操作其添加编辑功�
 多语言切换功能，cookie自动记忆。 [ok 2017-01-07]
 翻译所有词条。（长期）
 订单打印功能，精确自动分页，采用弹窗二次确认，可以选择是否打印图片/留言。
+    checkboxes [ok 2017-01-09]
+    popup url [ok 2017-01-09]
+    popup page
+    print pagination
 多语言词条翻译。
 查询界面的排序箭头不直观，改成向上和向下的箭头。
 按日期排的订单号。

@@ -10,6 +10,10 @@ use yii\helpers\Url;
 
 $this->title = Yii::t('app', 'Orders');
 $this->params['breadcrumbs'][] = $this->title;
+$this->registerJsFile(
+    '@web/js/order-index.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
 ?>
 <div class="order-index">
 
@@ -18,12 +22,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(Yii::t('app', 'Create Order'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Print Order'), ['print', 'ids' => '__ids__'], ['class' => 'btn btn-primary', 'id' => 'btn-print-order']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             // ['class' => 'yii\grid\SerialColumn'],
+            [
+                'class' => 'yii\grid\DataColumn',
+                'header' => '<input type="checkbox" id="order-select-all" value="1" />',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return '<input type="checkbox" class="order-select" value="' . $data->id . '" />';
+                },
+            ],
             [
                 'class' => 'yii\grid\DataColumn',
                 'header' => Yii::t('app', 'Image'),
