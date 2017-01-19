@@ -127,6 +127,17 @@ class OrderController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionPrint($ids)
+    {
+        $this->layout = 'blank';
+
+        $orders = Order::findAll(explode(',', $ids));
+
+        return $this->render('print', [
+            'orders' => $orders,
+        ]);
+    }
+
     /**
      * Finds the Order model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
