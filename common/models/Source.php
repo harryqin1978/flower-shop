@@ -15,9 +15,30 @@ class Source extends ActiveRecord
         return '{{%source}}';
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['priority'], 'integer'],
+        ];
+    }
+
     public function getOrders()
     {
         return $this->hasMany(Order::className(), ['source_id' => 'id']);
     }
 
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->priority < 0) {
+                $this->priority = 0;
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
